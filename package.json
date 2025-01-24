@@ -1,0 +1,11 @@
+{
+  "name": "back-end-mage-11",
+  "version": "1.0.0",
+  "description": "Folder for Upgrading Back End Skill",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nichol",
+  "license": "ISC"
+}
