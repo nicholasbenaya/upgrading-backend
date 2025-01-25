@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import routerKompetisi from './routes/kompetisi.route.js';
+import routerPeserta from './routes/peserta.route.js';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 })
 
 app.use('/', routerKompetisi);
+app.use('/', routerPeserta);
 
 
 app.listen(port, () => {
