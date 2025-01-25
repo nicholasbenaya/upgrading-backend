@@ -16,7 +16,7 @@ export const getAllKompetisiController = (req, res) => {
 
 export const createKompetisiController = (req, res) => {
   try {
-    if (!req.body) {
+    if (Object.keys(req.body).length === 0) {
       return res.status(400).json({ message: "Tidak ada data yang diisi" });
     }
     const kompetisiBaru = createKompetisi(req.body);
@@ -33,7 +33,7 @@ export const updateKompetisiController = (req, res) => {
     if (!id) {
       return res.status(400).json({ message: "Tidak dapat mengenali ID" });
     }
-    if (!req.body) {
+    if (Object.keys(req.body).length === 0) {
       return res
         .status(400)
         .json({ message: "Tidak ada data pembaruan yang diberikan" });

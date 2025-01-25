@@ -21,7 +21,7 @@ export const getAllPesertaController = (req, res) => {
 
 export const createPesertaController = (req, res) => {
   try {
-    if (!req.body) {
+    if (Object.keys(req.body).length === 0) {
       return res.status(400).json({ message: "No data provided" });
     }
     const pesertaBaru = createPeserta(req.body);
@@ -34,7 +34,7 @@ export const createPesertaController = (req, res) => {
 export const updatePesertaController = (req, res) => {
   try {
     const { id } = req.params;
-    if (!req.body) {
+    if (Object.keys(req.body).length === 0) {
       return res.status(400).json({ message: "No data provided" });
     }
     if (!id) {
