@@ -42,19 +42,6 @@ export const updateKompetisiByNamaController = async (req, res) => {
   }
 };
 
-// export const deleteKompetisiController = (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     if (!id) {
-//       return res.status(400).json({ message: "Tidak dapat mengenali ID" });
-//     }
-//     const updatedKompetisi = deleteKompetisiById(id);
-//     res.status(200).json(updatedKompetisi);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
-
 export const deleteKompetisiByNamaController = async (req, res) => {
   try {
     const { nama } = req.params;

@@ -1,17 +1,4 @@
-// let kompetisi = [
-//   {
-//     id: 1,
-//     nama: "Robotics",
-//     waktuMulai: "",
-//     waktuAkhir: "2025-02-01 15:00:00",
-//   },
-//   {
-//     id: 2,
-//     nama: "App Development",
-//     waktuMulai: "2025-02-02 14:00:00",
-//     waktuAkhir: "2025-02-02 18:00:00",
-//   },
-// ];
+
 import Kompetisi from "../models/kompetisi.model.js";
 
 export const createKompetisi = async (data) => {
@@ -25,12 +12,7 @@ export const createKompetisi = async (data) => {
   }
 };
 
-// export const getAllKompetisi = () => {
-//   if (!kompetisi.length) {
-//     throw new Error("Tidak ada kompetisi");
-//   }
-//   return kompetisi;
-// };
+
 export const getAllKompetisiService = async () => {
   try {
     const allKompetisi = await Kompetisi.find();
@@ -54,10 +36,7 @@ export const updateKompetisiByNamaService = async (nama, data) => {
   }
 };
 
-// export const deleteKompetisiById = (id) => {
-//   kompetisi = kompetisi.filter(komp => komp.id !== parseInt(id));
-//   return kompetisi;
-// }
+
 
 export const deleteKompetisiByNamaService = async (nama) => {
   try {
