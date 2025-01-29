@@ -1,16 +1,16 @@
 import express from "express";
 import {
-  getAllKompetisiController,
   createKompetisiController,
-  updateKompetisiController,
-  deleteKompetisiController,
+  getAllKompetisiController,
+  updateKompetisiByNamaController,
+  deleteKompetisiByNamaController
 } from "../controllers/kompetisi.controller.js";
 
 const routerKompetisi = express.Router();
 
 routerKompetisi.get("/api/kompetisi", getAllKompetisiController);
 routerKompetisi.post("/api/kompetisi", createKompetisiController);
-routerKompetisi.patch("/api/kompetisi/:id", updateKompetisiController);
-routerKompetisi.delete("/api/kompetisi/:id", deleteKompetisiController);
+routerKompetisi.patch("/api/kompetisi/:nama", updateKompetisiByNamaController);
+routerKompetisi.delete("/api/kompetisi/:nama", deleteKompetisiByNamaController);
 
 export default routerKompetisi;
