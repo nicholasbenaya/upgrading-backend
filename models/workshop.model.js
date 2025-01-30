@@ -1,29 +1,25 @@
 import mongoose from "mongoose";
 
-const pesertaSchema = mongoose.Schema(
+const workshopSchema = new mongoose.Schema(
   {
     nama: {
       type: String,
       required: true,
-    },
-    email: {
-      type: String,
-      required: true,
       unique: true,
     },
-    terverifikasi: {
-      type: Boolean,
+    durasi: {
+      type: Number,
       required: true,
-      default: false,
     },
   },
   { timestamps: true }
 );
-pesertaSchema.set("toJSON", {
+
+workshopSchema.set("toJSON", {
   transform: (doc, ret) => {
     delete ret.__v;
     return ret;
   },
 });
 
-export default mongoose.model("Peserta", pesertaSchema);
+export default mongoose.model("Workshop", workshopSchema);

@@ -1,4 +1,3 @@
-
 import Kompetisi from "../models/kompetisi.model.js";
 
 export const createKompetisi = async (data) => {
@@ -11,7 +10,6 @@ export const createKompetisi = async (data) => {
     throw new Error(error);
   }
 };
-
 
 export const getAllKompetisiService = async () => {
   try {
@@ -35,8 +33,6 @@ export const updateKompetisiByNamaService = async (nama, data) => {
     throw new Error(error);
   }
 };
-
-
 
 export const deleteKompetisiByNamaService = async (nama) => {
   try {

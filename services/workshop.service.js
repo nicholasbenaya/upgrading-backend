@@ -1,38 +1,40 @@
-let workshop = [
-  { id: 1, nama: "Workshop AI", durasi: "2" },
-  { id: 2, nama: "Workshop IoT", durasi: "3" },
-];
+import Workshop from "../models/workshop.model.js";
 
-export const getAllWorkshopService = () => {
-    if(!workshop.length) {
-        throw new Error("Tidak ada workshop ditemukan")
-    }
+export const createWorkshopService = async (data) => {
+  try {
+    const workshop = new Workshop(data);
+    await workshop.save();
+    console.log(workshop);
     return workshop;
-}
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
-export const createWorkshopService = (obj) => {
-    const workshopBaru = buatWorkshop(obj);
-    workshop.push(workshopBaru);
-    return workshopBaru;
-}
-// helper function
-const buatWorkshop = (data = {}) => ({
-    id: workshop.length + 1,
-    nama: data.nama || "",
-    durasi: data.durasi || ""
-});
+export const getAllWorkshopService = async () => {
+  try {
+    return Workshop.find();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
-export const updateWorkshopByIdService = (id, data) => {
-    const index = workshop.findIndex(ws => ws.id === parseInt(id));
-    if(index == -1) return null;
-    workshop[index] = {
-        ...workshop[index],
-        ...data
-    }
-    return workshop[index];
-}
+export const updateWorkshopByNamaService = async (nama, data) => {
+  try {
+    return Workshop.findOneAndUpdate(
+      { nama: nama },
+      { $set: data },
+      { new: true }
+    );
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
-export const deleteWorkshopByIdService = (id) => {
-    workshop = workshop.filter(ws => ws.id !== parseInt(id));
-    return workshop;
-}
+export const deleteWorkshopByNamaService = async (nama) => {
+  try {
+    return Workshop.findOneAndDelete({ nama: nama });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
